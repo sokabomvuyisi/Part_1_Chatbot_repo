@@ -1,5 +1,6 @@
-﻿using System;
+using System;
 
+//This code provides a simple console-based chatbot that interacts with the user to answer cybersecurity-related questions.
 public class UserQuery
 {
 	public UserQuery()
@@ -22,8 +23,9 @@ public class UserQuery
         string answer;
         do
         {
+            Console.WriteLine("==============================================================================================");
             // Provide a list of question options to the user and allow them to select one each time
-            Console.WriteLine("\nPlease select a question from the following options:");
+            Console.WriteLine("Please select a question from the following options:");
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("0. What is your purpose and how can you assist me with cybersecurity-related questions?");
             Console.WriteLine("1. What are the best practices for creating strong passwords?");
@@ -36,13 +38,21 @@ public class UserQuery
             Console.WriteLine("8. What are some common cybersecurity best practices for businesses and organizations?");
             Console.WriteLine("9. How can I stay up to date on the latest cybersecurity threats and trends?");
             Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("=============================================================================================");
+            Console.ResetColor();
 
             // Validate the user's input to ensure that it is a number between 0 and 9, and if it is not, prompt the user to enter a valid input.
             var input = Console.ReadLine() ?? string.Empty;
+             Console.WriteLine("============================================================================================");
+
             if (!int.TryParse(input, out int choice))
             {
-                Console.WriteLine($"Unfortunately {Name} i am still being developed, i may be unable to assist you with your input. Please enter a number between 0 and 9 for the moment.");
+                Console.WriteLine($"Unfortunately {Name} i am still being developed, i may be unable to assist you with your input. Please enter a number between 0 and 9 for the moment.");           
+                
+
             }
+
             // Use a switch statement to provide the appropriate response based on the user's selection.
             else
             {
@@ -81,13 +91,34 @@ public class UserQuery
                     default:
                         Console.WriteLine("Unfortunately i am still being developed, thus please for the moment enter values from 0 to 9 .");
                         break;
+                        
+
                 }
             }
-            // After providing the response, ask the user if they would like to ask another question and repeat the process until they choose to exit.
+            Console.WriteLine("============================================================================================");
+
+            // After providing the response, ask the user if they would like to ask another question.
             Console.WriteLine("\nWould you like to ask another question? (Yes/No)");
-            answer = Console.ReadLine()?.Trim() ?? "N";
-        }//use case-sensitive to check if the user 's answer is either "yes" or "y" or "no" or "n" or any other variation of these responses, and if it is not, prompt the user to enter a valid input until a valid input is received.
-        while(answer.Equals("yes", StringComparison.OrdinalIgnoreCase) || answer.Equals("y", StringComparison.OrdinalIgnoreCase) || answer.Equals("no", StringComparison.OrdinalIgnoreCase) || answer.Equals("n", StringComparison.OrdinalIgnoreCase) || answer.Equals("Y" , StringComparison.OrdinalIgnoreCase) || answer.Equals("Yes", StringComparison.OrdinalIgnoreCase) || answer.Equals("N", StringComparison.OrdinalIgnoreCase) || answer.Equals("No", StringComparison.OrdinalIgnoreCase) || string.IsNullOrWhiteSpace(answer));
+
+            // Fallback validation: keep asking until the user enters a clear yes or no.
+            while (true)
+            {
+                var yn = (Console.ReadLine() ?? string.Empty).Trim();
+                if (string.Equals(yn, "y", StringComparison.OrdinalIgnoreCase) || string.Equals(yn, "yes", StringComparison.OrdinalIgnoreCase))
+                {
+                    answer = "yes";
+                    break;
+                }
+                if (string.Equals(yn, "n", StringComparison.OrdinalIgnoreCase) || string.Equals(yn, "no", StringComparison.OrdinalIgnoreCase))
+                {
+                    answer = "no";
+                    break;
+                }
+                Console.WriteLine("Please answer 'Yes' or 'No' (y/n). Try again:");
+            }
+        }
+        // Continue while the user answered yes
+        while (answer.Equals("yes", StringComparison.OrdinalIgnoreCase));
         // If the user chooses to exit, thank them for their time and end the program.
         Console.WriteLine("Thank you for your time. Stay safe.");
     }
