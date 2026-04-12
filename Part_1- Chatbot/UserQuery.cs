@@ -23,7 +23,9 @@ public class UserQuery
         string answer;
         do
         {
+            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("==============================================================================================");
+            Console.ResetColor();
             // Provide a list of question options to the user and allow them to select one each time
             Console.WriteLine("Please select a question from the following options:");
             Console.ForegroundColor = ConsoleColor.Green;
@@ -38,14 +40,15 @@ public class UserQuery
             Console.WriteLine("8. What are some common cybersecurity best practices for businesses and organizations?");
             Console.WriteLine("9. How can I stay up to date on the latest cybersecurity threats and trends?");
             Console.ResetColor();
-            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("=============================================================================================");
             Console.ResetColor();
 
             // Validate the user's input to ensure that it is a number between 0 and 9, and if it is not, prompt the user to enter a valid input.
             var input = Console.ReadLine() ?? string.Empty;
-             Console.WriteLine("============================================================================================");
-
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("============================================================================================");
+            Console.ResetColor();
             if (!int.TryParse(input, out int choice))
             {
                 Console.WriteLine($"Unfortunately {Name} i am still being developed, i may be unable to assist you with your input. Please enter a number between 0 and 9 for the moment.");           
@@ -95,8 +98,9 @@ public class UserQuery
 
                 }
             }
+            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("============================================================================================");
-
+            Console.ResetColor();
             // After providing the response, ask the user if they would like to ask another question.
             Console.WriteLine("\nWould you like to ask another question? (Yes/No)");
 
