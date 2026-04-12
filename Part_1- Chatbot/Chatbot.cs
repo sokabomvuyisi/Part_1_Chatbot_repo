@@ -24,9 +24,11 @@ public class Chatbot
             audio.PlayGreeting();
         }
         catch
-        {
-            
-        }
+ {
+     Console.ForegroundColor = ConsoleColor.DarkYellow;
+     Console.WriteLine("[Audio]: Could not play greeting audio.");
+     Console.ResetColor();
+ }
 
         // call UserQuery in the main method
         new UserQuery();
