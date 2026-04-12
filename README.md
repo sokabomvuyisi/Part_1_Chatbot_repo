@@ -21,7 +21,7 @@
 - Graceful Exit — Personalised farewell message when the user chooses to leave
   
 # Project Structure
-CyberGuardChatbot/
+Cyber-press/
 │
 ├── Chatbot.cs          
 ├── Audioplay.cs        
