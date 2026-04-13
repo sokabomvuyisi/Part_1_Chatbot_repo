@@ -8,7 +8,7 @@
 - Author
   
 # About project
-- i created a command-line chatbot designed to help everyday users understand cybersecurity. It responds to ten common cybersecurity questions covering topics such as password safety, phishing attacks, malware, public Wi-Fi risks, and more for the time being.
+- We created a command-line chatbot designed to help everyday users understand cybersecurity. It responds to ten common cybersecurity questions covering topics such as password safety, phishing attacks, malware, public Wi-Fi risks, and more for the time being.
   
 # Features
 - ASCII Art Banner — A visually styled welcome banner displayed on launch
